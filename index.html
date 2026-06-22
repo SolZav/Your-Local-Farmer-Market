@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Sol Llinas">
+    
+    <title>Your Local Market</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="market.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Your Local Market</h1>
+        <nav>
+            <ul>
+                <li><a href="#aboutUs">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contactUs">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="aboutUs">
+            <h2>About Us</h2>
+            <p></p> <!--description TODO-->
+            <blockquote>Healing our communities one neighborhood at a time</blockquote>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <section id="service1" class="currentItem">
+                <h3>Fresh Food</h3>
+                <img>
+                <p></p> <!--TODO-->
+            </section>
+            <section id="service2" class="hiddenItem">
+                <h3>Mental Health</h3>
+                <img>
+                <p></p> <!--TODO-->
+            </section>
+            <section id="service3" class="hiddenItem">
+                <h3>Community Support</h3>
+                <img>
+                <p></p> <!--TODO-->
+            </section>
+            <section id="switcher">
+                <h3 class="sr-only">Learn more about our services</h3>
+			    <button id="btn1">Fresh Food</button>
+			    <button id="btn2">Mental Health</button>
+			    <button id="btn3">Community Support</button>
+            </section>
+        </section>
+
+        <section id="gamePlay">
+            <div>
+                <h2>Join the community</h2>
+                <form>
+				    <label for="numGuess">Enter a Number Between 1 and 10:</label>
+				    <span class="message">Please enter a number from 1 to 10</span>
+				    <input type="number" name="numGuess" id="numGuess">
+				    <input type="submit" name="guessGame" id="guessGame" value="Play the Game!">
+			    </form>
+			    <section id="gameDisplay">
+				    <h3>Win a Tote!</h3>
+				    <p>Enter a number between 1 and 10 in the box to the left and click the button to play. If your number matches, you win!</p>
+				    <p id="gameOutput"></p>
+			    </section>
+            </div>
+        </section>
+
+        <section id="contactUs">
+            <h2>Contact Us</h2>
+            <p>Would you like to help your community? Contact us and we'll tell you how!</p>
+            <p>Fields with <span class="required">*</span> are required</p>
+            <form id="contactForm">
+                <label for="fullName">Full name<span class="required">*</span></label> 
+                <span class="message">Please enter your full name</span>
+                <input id="fullName" type="text" name="fullName">
+
+                <label for="phoneNumber">Phone Number<span class="required">*</span></label>
+                <span class="message">Please enter your phone number</span>
+                <input id="phoneNumber" type="tel" name="phoneNumber">
+
+                <label for="email">Email</label>
+                <span class="message">Please enter your email</span>
+                <input id="email" type="email" name="email">
+
+                <label for="myMessage">Tell us more about you!</label>
+                <textarea id="myMessage" name="myMessage"></textarea>
+
+                <fieldset>
+                    <legend>Preferred Contact Method</legend>
+
+                    <label for="phoneBtn">Phone</label>
+                    <input id="phoneBtn" type="radio" name="phoneBtn" checked>
+
+                    <label for="emailBtn">Email</label>
+                    <input id="emailBtn" type="radio" name="emailBtn">
+                </fieldset>
+
+                <input type="submit" name="mySubmit" id="mySubmit">
+
+            </form>
+            <section id="success" class="hide">
+			    <h4>Thank you!</h4>
+			    <p>You have successfully submitted the form. Here is the information you sent us:</p>
+			    <p id="formSub"></p>
+		    </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>Copyright &copy; For educational purposes</p>
+    </footer>
+</body>
+</html>
