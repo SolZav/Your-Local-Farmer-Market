@@ -1,3 +1,8 @@
+/*CSS BY SOL LLINAS*/
+
+/*IMPORT FONT STYLES*/
+@import url('https://fonts.googleapis.com/css2?family=Castoro+Titling&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 /*CSS RESET*/
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -50,11 +55,91 @@ table {
 
 /*ROOT STYLES*/
 :root{
-    --font-header:;
-    --font-body;
+    --font-header: 'Castoro Titling', Helvetica, serif;
+    --font-body: Inter, Arial, sans-serif;
 
     --dk-blue: #252a74;
     --green: #38581d; 
     --white: #f1efef;
     --dk-grey: #27282a;
+}
+
+/*GLOBAL STYLES*/
+body{
+	max-width: 1280px;
+	margin: 0 auto;
+	background-color: var(--green);
+	color: var(--dk-grey);
+	font-family: var(--font-body);
+}
+
+main{
+	background-color: var(--white);
+	padding: 1.5rem;
+}
+
+footer{
+	background-color: var(--dk-blue);
+	color: var(--white);
+	padding: 1.5rem;
+}
+
+header, nav{
+	background-color: var(--dk-blue);
+	color: var(--white);
+	padding: 1.5rem;
+}
+
+header{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+h1{
+	font-family: var(--font-header);
+	font-size: 2rem;
+	font-weight: bold;
+	padding-top: 1rem;
+}
+
+h2{
+	font-family: var(--font-header);
+	font-size: 1.2rem;
+	font-weight: bold;
+	padding: 1rem;
+}
+
+h3{
+	font-family: var(--font-header);
+	font-size: 1rem;
+	font-weight: bold;
+	padding: 1rem;
+}
+
+nav ul{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+nav ul li a{
+	display: block;
+	padding: 1rem;
+	font-family: var(--font-header);
+	font-size: 1rem;
+	font-weight: 600;
+	color: var(--white);
+	text-decoration: none;
+}
+
+nav ul li:hover{
+	background-color: var(--green);
+}
+
+#aboutUs p{
+	text-align: justify;
+	padding: 2rem, 3rem, 1rem, 2rem;
+}
+
+img{
+	max-width: 600px;
 }
