@@ -58,13 +58,18 @@ table {
     --font-header: 'Castoro Titling', Helvetica, serif;
     --font-body: Inter, Arial, sans-serif;
 
-    --dk-blue: #252a74;
+    --dk-blue: #0d0548;
     --green: #38581d; 
     --white: #f1efef;
     --dk-grey: #27282a;
+	--error-red: #d10505;
+
+	--box-shadow: -5px 5px 5px var(--dk-grey);
+	--hover-shadow: -3px 3px 6px var(--dk-grey);
 }
 
 /*GLOBAL STYLES*/
+/*Basic body style*/
 body{
 	max-width: 1280px;
 	margin: 0 auto;
@@ -74,6 +79,16 @@ body{
 	line-height: 1.2rem;
 }
 
+.sr-only {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+/*dark/ligh mode body styles*/
 body.light-mode {
   background-color: var(--white);
   color: var(--dk-grey);
@@ -92,10 +107,6 @@ body.dark-mode {
   cursor: pointer;
 }
 
-main{
-	padding: 1.5rem;
-}
-
 footer{
 	background-color: var(--dk-blue);
 	color: var(--white);
@@ -109,22 +120,23 @@ footer{
     height: 0.5rem;
     padding: 1.5rem;
     position: absolute;
-    transform: translateX(-250%);
+    transform: translateX(-500%);
     transition: transform 0.3s;
 }
 #skip:focus {
-    transform: translateX(-50%);
+    transform: translateX(0%);
+}
+
+header{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }
 
 header, nav{
 	background-color: var(--dk-blue);
 	color: var(--white);
 	padding: 1.5rem;
-}
-
-header{
-	display: grid;
-	grid-template-columns: 1fr 1fr;
 }
 
 h1{
@@ -136,12 +148,19 @@ h1{
 
 h2{
 	font-family: var(--font-header);
-	font-size: 1.2rem;
+	font-size: 1.5rem;
 	font-weight: bold;
 	padding: 1rem;
 }
 
 h3{
+	font-family: var(--font-header);
+	font-size: 1.2rem;
+	font-weight: bold;
+	padding: 1rem;
+}
+
+h4{
 	font-family: var(--font-header);
 	font-size: 1rem;
 	font-weight: bold;
@@ -167,11 +186,157 @@ nav ul li:hover{
 	background-color: var(--green);
 }
 
+#aboutUs{
+	padding-top: 3rem;
+	padding-bottom: 2rem;
+}
+
 #aboutUs p{
-	text-align: justify;
-	padding: 2rem, 3rem, 1rem, 2rem;
+	padding-left: 3rem;
+	padding-right: 3rem;
+}
+
+blockquote{
+	font-weight: bold;
+	font-family: var(--font-header);
+	padding: 1.5rem;
+}
+
+/*All button and input styles*/
+
+button, input[type="submit"]{
+	display: block;
+	padding: 1rem;
+	background-color: var(--green);
+	color: var(--white);
+	box-shadow: var(--box-shadow);
+	font-size: 1rem;
+}
+
+button:hover, input[type="submit"]:hover{
+	background-color: var(--white);
+	color: var(--green);
+	box-shadow: var(--hover-shadow);
+}
+
+/*Product display styles*/
+
+#service1, #service2, #service3{
+	border: var(--green) solid 2px;
+	margin: 2rem;
+	padding: 2rem;
+}
+
+.currentItem{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 2fr;
+	gap: 2rem;
+}
+
+.hiddenItem{
+	display: none;
 }
 
 img{
-	max-width: 600px;
+	grid-row: 1/-1;
+	max-width: 400px;
 }
+
+#switcher{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 1rem;
+	width: fit-content;
+	margin: 2rem auto;
+}
+
+/*game play section*/
+#gamePlay div{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin: 2rem;
+	padding: 1.5rem;
+	border: var(--green) solid 2px;
+}
+
+#gamePlay form{
+	padding: 1rem;
+}
+
+input{
+	padding: 0.5rem;
+}
+
+/*Error messages and span styles*/
+.message{
+	display: none;
+	color: var(--error-red);
+}
+
+.error{
+	font-size: 1rem;
+	display: block;
+}
+
+.errorInput{
+	border: 1px solid var(--error-red);
+}
+
+.hide{
+	display: none;
+}
+
+/*Contact form styles*/
+#contactUs{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 0.5fr 0.5fr 3fr 1fr;
+}
+
+#contactUs p:first-of-type{	
+	grid-column: 2/-1;
+	grid-row: 1/2;
+	padding-top: 1.5rem;
+}
+
+#contactUs p:last-of-type{
+	grid-column: 2/-1;
+	grid-row: 2/3;
+}
+
+#contactUs span{
+	color: var(--error-red);
+}
+
+#contactForm{
+	grid-row: 3/4;
+	grid-column: 1/-1;
+	display: grid;
+	grid-template-columns: 0.5fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+	gap: 0.5rem;
+	border: var(--green) solid 2px;
+	margin: 2rem;
+	padding: 1rem;
+}
+
+#contactUs label, fieldset{
+	grid-column: 1/2;
+}
+
+#contactUs input{
+	grid-column: 2/3;
+}
+
+fieldset{
+	border: var(--green) solid 1px;
+	padding: 0.5rem;
+}
+
+#success{
+	grid-column: 1/-1;
+	grid-row: 4/-1;
+	margin-left: 1rem;
+}
+
