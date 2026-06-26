@@ -88,7 +88,7 @@ body{
 	overflow: hidden;
 }
 
-/*dark/ligh mode body styles*/
+/*dark/light mode body styles*/
 body.light-mode {
   background-color: var(--white);
   color: var(--dk-grey);
@@ -264,14 +264,25 @@ img{
 	grid-row: 1/3;
 }
 
-input{
+#gamePlay input{
+	padding: 0.5rem;
+}
+
+#gameOutput{
+	font-family: var(--font-header);
+	font-weight: bold;
+	font-size: 1rem;
 	padding: 0.5rem;
 }
 
 /*Error messages and span styles*/
+span{
+	color: var(--error-red);
+	line-height: 2rem;
+}
+
 .message{
 	display: none;
-	color: var(--error-red);
 }
 
 .error{
@@ -303,10 +314,6 @@ input{
 #contactUs p:last-of-type{
 	grid-column: 2/-1;
 	grid-row: 2/3;
-}
-
-#contactUs span{
-	color: var(--error-red);
 }
 
 #contactForm{
