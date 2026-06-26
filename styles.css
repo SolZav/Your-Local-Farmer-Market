@@ -302,7 +302,8 @@ span{
 #contactUs{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 0.5fr 0.5fr 3fr 1fr;
+	grid-template-rows: 0.2fr 0.2fr 2fr 1fr;
+	padding-top: 1rem;
 }
 
 #contactUs p:first-of-type{	
@@ -324,7 +325,7 @@ span{
 	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 	gap: 0.5rem;
 	border: var(--green) solid 2px;
-	margin: 2rem;
+	margin: 1rem;
 	padding: 1rem;
 }
 
@@ -346,4 +347,5 @@ fieldset{
 	grid-row: 4/-1;
 	margin-left: 1rem;
 }
+
 

@@ -95,8 +95,6 @@ function gamePlay(e){
   inputNumber.value = ""; //clear input
   gameErrorMessg.classList.add("message"); //hide error message
   inputNumber.classList.remove("errorInput"); //remove red border from input 
-
-  console.log(num);
   
   //use boolean to track validity
   let isValid = true;
@@ -125,3 +123,129 @@ document.getElementById("guessGame").addEventListener("click", gamePlay);
 
 
 //form validation
+//create form validation function
+function validateForm(e) {
+  //prevent default form submission
+  e.preventDefault();
+
+  //access the form
+  let myForm = document.querySelector("#contactForm");
+
+  //create an array with all the error messages
+  let errorSpans = document.querySelectorAll("#contactForm .message");
+
+  //create an object to hold submitted information
+  let mySubmission = {};
+
+  //boolean to track validity
+  let isValid = true;
+
+  //reset error input display
+  myForm.fullName.classList.remove("errorInput");
+  myForm.phoneNumber.classList.remove("errorInput");
+  myForm.email.classList.remove("errorInput");
+  myForm.myMessage.classList.remove("errorInput");
+  
+  //reset error message display
+  errorSpans.forEach(function(span){
+    span.classList.remove("error");
+  })
+
+  //add hide class to success section
+  document.querySelector("#success").classList.add("hide");
+
+  //create reg expressions to validate phone number and email
+  let phoneRegex = /(?:\d{1}\s)?\(?(\d{3})\)?-?\s?(\d{3})-?\s?(\d{4})/g;
+  let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,5}$/;
+
+  //validate name is not blank
+  if(myForm.fullName.value === ""){
+    //add errorInput class to input field
+    myForm.fullName.classList.add("errorInput");
+
+    //display error message
+    errorSpans[0].classList.add("error");
+
+    //set is valid to false to prevent submission
+    isValid = false;
+  }
+
+  //validate that phone number is not blank and matches the regex
+  if(myForm.phoneNumber.value === "" || !(phoneRegex.test(myForm.phoneNumber.value))){
+    //only when phone is selected as preferred contact method
+    if(myForm.phoneBtn.checked === true){
+    //add errorInput class to input field
+      myForm.phoneNumber.classList.add("errorInput");
+
+      //display error message
+      errorSpans[1].classList.add("error");
+
+      //set is valid to false to prevent submission
+      isValid = false;
+    }
+  }
+
+  //validate that email is not blank and matches the regex
+  if(myForm.email.value === "" || !(emailRegex.test(myForm.email.value))){
+    //only when email is selected as preferred contact method
+    if(myForm.emailBtn.checked === true){
+    //add errorInput class to input field
+      myForm.email.classList.add("errorInput");
+
+      //display error message
+      errorSpans[2].classList.add("error");
+
+      //set is valid to false to prevent submission
+      isValid = false;
+    }
+  }
+
+  //validate that myMessage is not blank
+  if(myForm.myMessage.value === ""){
+    //add errorInput class to input field
+      myForm.myMessage.classList.add("errorInput");
+
+      //display error message
+      errorSpans[3].classList.add("error");
+
+      //set is valid to false to prevent submission
+      isValid = false;
+  }
+
+  //if form is valid add information submitted to the object created and display
+  if(isValid){
+    //if user checked phone number
+    if(myForm.phoneBtn.checked === true){
+      //add full name, phone number, and message to the object
+      mySubmission.fullName = myForm.fullName.value;
+      mySubmission.phoneNumber = myForm.phoneNumber.value;
+      mySubmission.myMessage = myForm.myMessage.value;
+
+      //display object
+      document.getElementById("formSub").innerHTML = `Full name: ${mySubmission.fullName}<br>
+      Phone number: ${mySubmission.phoneNumber}<br>
+      Message: ${mySubmission.myMessage}`;
+      document.querySelector("#success").classList.remove("hide");
+    }
+    
+    else if(myForm.emailBtn.checked === true){
+      //add full name, email, and message to the object
+      mySubmission.fullName = myForm.fullName.value;
+      mySubmission.email = myForm.email.value;
+      mySubmission.myMessage = myForm.myMessage.value;
+
+      //display object
+      document.getElementById("formSub").innerHTML = `Full name: ${mySubmission.fullName}<br>
+      Email: ${mySubmission.email}<br>
+      Message: ${mySubmission.myMessage}`;
+      document.querySelector("#success").classList.remove("hide");
+    }
+  }
+
+  //clear form input
+  myForm.reset();
+
+}
+
+//add event listener to run the validateForm function
+document.getElementById("mySubmit").addEventListener("click", validateForm);
