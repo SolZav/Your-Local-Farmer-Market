@@ -214,32 +214,19 @@ function validateForm(e) {
 
   //if form is valid add information submitted to the object created and display
   if(isValid){
-    //if user checked phone number
-    if(myForm.phoneBtn.checked === true){
-      //add full name, phone number, and message to the object
-      mySubmission.fullName = myForm.fullName.value;
-      mySubmission.phoneNumber = myForm.phoneNumber.value;
-      mySubmission.myMessage = myForm.myMessage.value;
 
-      //display object
-      document.getElementById("formSub").innerHTML = `Full name: ${mySubmission.fullName}<br>
-      Phone number: ${mySubmission.phoneNumber}<br>
-      Message: ${mySubmission.myMessage}`;
-      document.querySelector("#success").classList.remove("hide");
-    }
-    
-    else if(myForm.emailBtn.checked === true){
-      //add full name, email, and message to the object
-      mySubmission.fullName = myForm.fullName.value;
-      mySubmission.email = myForm.email.value;
-      mySubmission.myMessage = myForm.myMessage.value;
+    //add full name, email, phone number, and message to the object
+    mySubmission.fullName = myForm.fullName.value;
+    mySubmission.phoneNumber = myForm.phoneNumber.value;
+    mySubmission.email = myForm.email.value;
+    mySubmission.myMessage = myForm.myMessage.value;
 
-      //display object
-      document.getElementById("formSub").innerHTML = `Full name: ${mySubmission.fullName}<br>
-      Email: ${mySubmission.email}<br>
-      Message: ${mySubmission.myMessage}`;
-      document.querySelector("#success").classList.remove("hide");
-    }
+    //display object
+    document.getElementById("formSub").innerHTML = `Full name: ${mySubmission.fullName}<br>
+    Phone number: ${mySubmission.phoneNumber}<br>
+    Email: ${mySubmission.email}<br>
+    Message: ${mySubmission.myMessage}`;
+    document.querySelector("#success").classList.remove("hide");
   }
 
   //clear form input
