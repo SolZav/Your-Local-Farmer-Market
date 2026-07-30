@@ -71,7 +71,7 @@ table {
 /*GLOBAL STYLES*/
 /*Basic body style*/
 body{
-	max-width: 1280px;
+	width: 1280px;
 	margin: 0 auto;
 	background-color: var(--white);
 	color: var(--dk-grey);
