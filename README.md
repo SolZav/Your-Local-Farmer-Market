@@ -3,6 +3,13 @@ I did not use generative AI tools for this project. I used only approved course 
 ## Development Log
 
 ### Day 1
+Started with my previous GIT417 project as the base for this final project. Before adding on new features, I reviewed existing HTML, CSS, and JS to correct issues and make necessary improvements.
+Initial work included:
+- Reviewing existing structure
+- Checking HTML validator for errors
+- Checking CSS validator for errors
+- Testing current JS functionalities
+- Making updates required to begin the project
 
 
 ## Debugging Log
