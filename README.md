@@ -7,7 +7,7 @@ I did not use generative AI tools for this project. I used only approved course 
 
 ## Debugging Log
 
-## Problem 1
+### Problem 1
 
 ### What I tried
 
