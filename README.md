@@ -11,6 +11,13 @@ Initial work included:
 - Testing current JS functionalities
 - Making updates required to begin the project
 
+### Day 2
+Identified another improvement for the HTML, also decided to fork this repository to keep this original file intact
+Work included:
+- Update HTML
+- Validate HTML
+- Fork repository
+- Continue work on new repository
 
 ## Debugging Log
 
